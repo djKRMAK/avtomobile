@@ -16,7 +16,7 @@
 
             <div class="clearfix"></div>
 
-            <!-- menu profile quick info -->
+            <!-- menu profifle quick info -->
             <?php require('menu_profile.php'); ?>
             <!-- /menu profile quick info -->
 
