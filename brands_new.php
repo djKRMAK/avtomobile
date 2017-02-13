@@ -61,35 +61,17 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_content">
-                    <h1>Proizvođači</h1>
+                    <h1>Unos proivodzacha</h1>
 
-                    <?php
-                        $sql = "SELECT id, name, year_est  FROM brands;";
-                        $result = $mysqli->query($sql);
-                    ?>
+                  
+                <form action = "brands_create.php" method="post">
+                ime proizvodzacha:
+                <input type="text" name="name"><br>
+                datum osnutka:
+                <input type="text" name="year_est"><br>
+                <input type="submit" value="unesi">
 
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Name</th>
-                          <th>Year established</th>
-                        
-                        </tr>
-                      </thead>
-                      <tbody>
-                      <?php
-                      while ($brand = $result->fetch_assoc()) {
-                     echo('<tr>');
-                     echo('<th scope="row">' . $brand ['id'] . '</th>');
-                     echo('<td>' . $brand['name'] . '</td>');
-                     echo('<td>' . $brand['year_est'] . '</td>');
-                     echo('</tr>');
-                    }
-                      ?>
-                        
-                      </tbody>
-                    </table>
+                </form>
                   </div>
                 </div>
               </div>
