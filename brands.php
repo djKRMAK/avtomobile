@@ -1,4 +1,4 @@
-<?php require('connect.php');?>
+<?php require('connect.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,7 +27,7 @@
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
-            
+
             <!-- /menu footer buttons -->
           </div>
         </div>
@@ -61,10 +61,10 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_content">
-                    <h1>Proizvođači</h1>
+                    <h1>PROIZVODZACHI</h1>
 
                     <?php
-                        $sql = "SELECT id, name, year_est  FROM brands ORDER BY name;";
+                        $sql = "SELECT id, name, year_est FROM brands ORDER BY name;";
                         $result = $mysqli->query($sql);
                     ?>
 
@@ -74,22 +74,24 @@
                           <th>#</th>
                           <th>Name</th>
                           <th>Year established</th>
-                        
+                          <th></th>
+                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
-                      <?php
-                      while ($brand = $result->fetch_assoc()) {
-                     echo('<tr>');
-                     echo('<th scope="row">' . $brand ['id'] . '</th>');
-                     echo('<td>' . $brand['name'] . '</td>');
-                     echo('<td>' . $brand['year_est'] . '</td>');
-                     echo('</tr>');
-                    }
-                      ?>
-                        
+<?php
+    while ($brand = $result->fetch_assoc()) {
+        echo('<tr>');
+        echo('<th scope="row">' . $brand['id'] . '</th>');
+        echo('<td>' . $brand['name'] . '</td>');
+        echo('<td>' . $brand['year_est'] . '</td>');
+        echo('<td><a href="brands_edit.php?id=' . $brand['id'] . '"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>');
+        echo('<td><a href="brands_delete.php?id=' . $brand['id'] . '"><i class="fa fa-trash" aria-hidden="true"></i></a></td>');
+        echo('</tr>');
+    }
+?>                        
                       </tbody>
-                    </table>
+                    </table>                    
                   </div>
                 </div>
               </div>
@@ -109,7 +111,7 @@
       </div>
     </div>
 
-<?php require('js.php'); ?>
+    <?php require('js.php'); ?>
 	
   </body>
 </html>

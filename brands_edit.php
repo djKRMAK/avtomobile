@@ -1,4 +1,4 @@
-<?php require('connect.php');?>
+<?php require('connect.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,7 +27,7 @@
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
-            
+
             <!-- /menu footer buttons -->
           </div>
         </div>
@@ -41,7 +41,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Proizvodzachi</h3>
+                <h3>PROIZVODZACHI</h3>
               </div>
 
               <div class="title_right">
@@ -61,28 +61,36 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_content">
-                    <h1>Unos</h1>
+                    <h1>Izmjena</h1>
 
-                             
-                
-                <form action="brands_create.php" method="post" class="form-horizontal form-label-left" >
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Ime Proizvodzacha: <span class="required"></span>
-                </label>
-                <div class=form-group>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12"></div>
-                </div>
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="year_est">Datum osnutka: <span class="required"></span>
-                </label>
-                <div class=form-group>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                <input type="text" id="name" name="year_est" required="required" class="form-control col-md-7 col-xs-12"></div>             
-                </div>
-                <div class=form-group>
-                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                <button type="submit" value="unesi" class="btn btn-success">Unesi</button>
-                </div>
-                </form>
+                    <?php
+                    $sql = "SELECT id, name, year_est FROM brands WHERE id=" . $_GET['id'];
+                    $result = $mysqli->query($sql);
+                    $brand = $result->fetch_assoc();
+                    ?>
+                    
+                    <form action="brands_update.php" method="post" class="form-horizontal form-label-left">
+                        <input type="hidden" name="id" value="<?php echo($brand['id']); ?>">
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Ime proizvođača:</label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo($brand['name']); ?>">
+                          </div>
+                        </div>
+                        
+                        <div class="form-group">
+                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="year_est">Datum osnutka:</label>
+                          <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="year_est" name="year_est" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo($brand['year_est']); ?>">
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <input type="submit" value="Unesi" class="btn btn-success">
+                          </div>
+                        </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -102,7 +110,7 @@
       </div>
     </div>
 
-<?php require('js.php'); ?>
+    <?php require('js.php'); ?>
 	
   </body>
 </html>
