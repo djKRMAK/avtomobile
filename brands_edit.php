@@ -107,6 +107,7 @@
           <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
+        <?php require('footer.php'); ?>
       </div>
     </div>
 

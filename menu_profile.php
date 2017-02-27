@@ -3,7 +3,7 @@
                 <img src="images/img.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Dobrodošao,</span>
-                <h2>Ime Prezime</h2>
+                <span>DISI BRATE,</span>
+                <h2>ĐANI VERSAČE BAJRAM</h2>
               </div>
             </div>
